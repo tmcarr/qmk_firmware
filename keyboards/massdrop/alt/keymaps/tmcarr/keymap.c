@@ -83,7 +83,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case L_PTN:
             if (record->event.pressed) {
-                if (led_animation_id == led_setups_count - 1) led_animation_id = 0;
+                //default led_animation_id to 3 since that is a more prefferrable default animation
+                if (led_animation_id == led_setups_count - 1) led_animation_id = 3;
                 else led_animation_id++;
             }
             return false;
@@ -188,7 +189,7 @@ led_instruction_t led_instructions[] = {
     //Flags can be found in tmk_core/protocol/arm_atsam/led_matrix.h (prefixed with LED_FLAG_)
     //LED IDs can be found in config_led.h in the keyboard's directory
     //Examples are below
-    
+
     //All LEDs use the user's selected pattern (this is the factory default)
      { .flags = LED_FLAG_USE_ROTATE_PATTERN },
 
@@ -197,7 +198,7 @@ led_instruction_t led_instructions[] = {
 
     //Specific LEDs use specified RGB values while all others are off
     // { .flags = LED_FLAG_MATCH_ID | LED_FLAG_USE_RGB, .id0 = 0xFF, .id1 = 0x00FF, .id2 = 0x0000FF00, .id3 = 0xFF000000, .r = 75, .g = 150, .b = 225 },
-    
+
     //All LEDs use the user's selected pattern
     //On layer 1, all key LEDs (except the top row which keeps active pattern) are red while all edge LEDs are green
     //When layer 1 is active, key LEDs use red    (id0  32 -  16: 1111 1111 1111 1111 1000 0000 0000 0000 = 0xFFFF8000) (except top row 15 - 1)
