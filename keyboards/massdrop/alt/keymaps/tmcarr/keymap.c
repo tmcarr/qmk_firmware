@@ -191,7 +191,7 @@ led_instruction_t led_instructions[] = {
 
     // Tmcarr edit for default pattern to 3, all white LEDs
     {.flags = LED_FLAG_USE_ROTATE_PATTERN},
-    {.flags = LED_FLAG_USE_PATTERN, .pattern_id = 8},
+    {.flags = LED_FLAG_USE_PATTERN, .pattern_id = 7},
 
     // All LEDs use the user's selected pattern (this is the factory default)
     // {.flags = LED_FLAG_USE_ROTATE_PATTERN}
